@@ -29,7 +29,8 @@ public class RecentlyUsedListTest {
         list.add(new Integer(1));
         try {
             list.add(2, new Integer(3));
-        } catch(IndexOutOfBoundsException e) {}
+        } catch (IndexOutOfBoundsException e) {
+        }
     }
 
     @Test

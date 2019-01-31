@@ -9,15 +9,15 @@ public class RecentlyUsedList<E> extends ArrayList<E> {
     @Override
     public boolean add(E element) {
         try {
-            if(contains(element)) {
+            if (contains(element)) {
                 remove(element);
                 add(0, element);
                 return true;
             } else {
-                 add(0, element);
+                add(0, element);
                 return true;
             }
-        } catch(IndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException e) {
             return false;
         }
     }
