@@ -22,5 +22,14 @@ public class RecentlyUsedList<E> extends ArrayList<E> {
         }
     }
 
+    @Override
+    public void add(int index, E element) {
+        if (index != 0) {
+            throw new IndexOutOfBoundsException();
+        } else {
+            super.add(0, element);
+        }
+    }
+
 
 }
