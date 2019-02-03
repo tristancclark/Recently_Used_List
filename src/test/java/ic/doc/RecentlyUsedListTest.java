@@ -1,12 +1,11 @@
 package ic.doc;
 
-import org.junit.Test;
-
-import java.util.List;
-
 import static junit.framework.TestCase.assertTrue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+
+import java.util.List;
+import org.junit.Test;
 
 public class RecentlyUsedListTest {
 
@@ -18,28 +17,29 @@ public class RecentlyUsedListTest {
   @Test
   public void canAddItems() {
     List<Integer> list = new RecentlyUsedList<>();
-    assertTrue(list.add(new Integer(5)));
+    assertTrue(list.add(5));
   }
 
   @Test
   public void doesNotAllowAddingAtIndexOtherThanZero() {
     List<Integer> list = new RecentlyUsedList<>();
-    list.add(new Integer(5));
-    list.add(new Integer(2));
-    list.add(new Integer(1));
+    list.add(5);
+    list.add(2);
+    list.add(1);
     try {
-      list.add(2, new Integer(3));
+      list.add(2, 3);
     } catch (IndexOutOfBoundsException e) {
+      System.out.println("Index Out of Bounds Exception thrown as expected");
     }
   }
 
   @Test
   public void canRetrieveFromList() {
     List<Integer> list = new RecentlyUsedList<>();
-    list.add(new Integer(5));
-    list.add(new Integer(2));
-    list.add(new Integer(1));
-    list.add(new Integer(4));
+    list.add(5);
+    list.add(2);
+    list.add(1);
+    list.add(4);
     assertThat(list.get(0), is(4));
     assertThat(list.get(1), is(1));
     assertThat(list.get(2), is(2));
@@ -49,12 +49,12 @@ public class RecentlyUsedListTest {
   @Test
   public void cannotAddDuplicates() {
     List<Integer> list = new RecentlyUsedList<>();
-    list.add(new Integer(5));
-    list.add(new Integer(5));
-    list.add(new Integer(5));
-    list.add(new Integer(6));
-    list.add(new Integer(6));
-    list.add(new Integer(7));
+    list.add(5);
+    list.add(5);
+    list.add(5);
+    list.add(6);
+    list.add(6);
+    list.add(7);
     assertThat(list.size(), is(3));
   }
 
